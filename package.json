@@ -1,0 +1,28 @@
+{
+  "name": "exercise-tracker",
+  "version": "1.0.0",
+  "description": "A microservice to track exercises created by users built for the FCC backend and api section certification challenges",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AgomohC/exercise-tracker.git"
+  },
+  "keywords": [],
+  "author": "Chinaemerem Agomoh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AgomohC/exercise-tracker/issues"
+  },
+  "homepage": "https://github.com/AgomohC/exercise-tracker#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
