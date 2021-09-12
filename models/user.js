@@ -1,12 +1,22 @@
 const mongoose = require("mongoose");
 
-const UserSchema = mongoose.Schema({
-  username: { type: String, trim: true, required: true },
+const UserSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    trim: true,
+    required: true,
+  },
   count: Number,
   log: [
     {
-      description: { type: String, required: true },
-      duration: { type: Number, required: true },
+      description: {
+        type: String,
+        // required: true,
+      },
+      duration: {
+        type: Number,
+        // required: true,
+      },
       date: Date,
     },
   ],
@@ -14,4 +24,4 @@ const UserSchema = mongoose.Schema({
 
 const NewUser = mongoose.model("NewUser", UserSchema);
 
-Module.exports = NewUser;
+module.exports = NewUser;
