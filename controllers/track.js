@@ -50,8 +50,8 @@ const addExercise = async (req, res) => {
     date = moment(date).format("ddd MMMM DD YYYY");
   }
   try {
-    const user = await NewUser.findOne({ _id: id });
-    if (!user) {
+    const user1 = await NewUser.findOne({ _id: id });
+    if (!user1) {
       return res.status(404).json({ msg: "user does not exist" });
     } else {
       const userLog = await NewLog.create({
@@ -60,17 +60,18 @@ const addExercise = async (req, res) => {
         date,
       });
       const user = {
-        username: user.username,
-        _id: user._id,
+        username: user1.username,
+        _id: user1._id,
         log: {
           description: userLog.description,
           duration: userLog.duration,
-          date: userLog.duration,
+          date: userLog.date,
         },
       };
       return res.status(200).json({ user });
     }
   } catch (error) {
+    console.log(error);
     return res
       .status(500)
       .json({ msg: "Something went wrong, please try again" });
@@ -84,17 +85,29 @@ const getExerciseLogs = async (req, res) => {
     ? moment(to, "YYYY-MM-DD")
     : moment().add(1000000000000);
   try {
-    const user = await NewUser.find({ _Id })
+    const user = await NewUser.findOne({ _id });
+    const log1 = await NewLog.find({ userId: _id })
       .where("date")
       .gte(from)
       .lte(to)
-      .limit(+limit)
+      .limit(-limit)
       .exec();
     if (!user) {
-      return res.status(404).json({ msg: "user not found" });
+      return res.status(404).json({ msg: "user does not exist" });
     }
-    return res.status(200).json({ user });
+    const result = {
+      _id,
+      username: user.username,
+      count: log1.length,
+      log: log1.map((item) => ({
+        description: item.description,
+        duration: item.duration,
+        date: item.date,
+      })),
+    };
+    return res.status(200).json({ result });
   } catch (error) {
+    console.log(error);
     return res
       .status(500)
       .json({ msg: "Something went wrong, please try again" });
