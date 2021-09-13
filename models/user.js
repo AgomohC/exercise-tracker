@@ -6,20 +6,6 @@ const UserSchema = new mongoose.Schema({
     trim: true,
     required: true,
   },
-  count: Number,
-  log: [
-    {
-      description: {
-        type: String,
-        // required: true,
-      },
-      duration: {
-        type: Number,
-        // required: true,
-      },
-      date: Date,
-    },
-  ],
 });
 
 const NewUser = mongoose.model("NewUser", UserSchema);
