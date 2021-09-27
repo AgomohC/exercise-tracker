@@ -15,11 +15,15 @@ const app = express();
 app.use(express.static("./public"));
 
 //parser
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 //routes
 const tracker = require("./routes/tracker");
 app.use("/api/users", tracker);
+app.use((req, res) => {
+  res.send("Page does not exist");
+});
 
 const port = process.env.PORT || 8080;
 
