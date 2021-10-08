@@ -4,13 +4,17 @@
   "description": "A microservice to track exercises created by users built for the FCC backend and api section certification challenges",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AgomohC/exercise-tracker.git"
   },
-  "keywords": [],
+  "keywords": [
+    "express",
+    "mongoose",
+    "moment"
+  ],
   "author": "Chinaemerem Agomoh",
   "license": "ISC",
   "bugs": {

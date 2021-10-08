@@ -8,16 +8,10 @@ const createNewUser = async (req, res) => {
   try {
     const user = await NewUser.findOne({ username });
     if (!user) {
-      try {
-        const newUser = await NewUser.create({ username });
-        return res
-          .status(201)
-          .json({ username: newUser.username, _id: newUser._id });
-      } catch (error) {
-        return res
-          .status(500)
-          .json({ msg: "something went wrong, please try again" });
-      }
+      const newUser = await NewUser.create({ username });
+      return res
+        .status(201)
+        .json({ username: newUser.username, _id: newUser._id });
     } else {
       return res.status(200).json({ username: user.username, _id: user._id });
     }
@@ -71,11 +65,11 @@ const addExercise = async (req, res) => {
       count: 0,
       log: [],
     };
-    const user1 = await NewUser.findOne({ _id: id });
+    const user1 = await NewUser.findOne({ _id: id })
     if (!user1) {
       return res.status(404).json({ msg: "user does not exist" });
     } else {
-      const userLog = await NewLog.create({
+      await NewLog.create({
         description,
         duration,
         date,
