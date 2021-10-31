@@ -1,19 +1,19 @@
 # Exercise Tracker
 
-[femto-exercise-tracker]() is a simple full stack app that keeps tracks of exercise logs of different users. This project idea was gotten from [freeCodeCamp](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/exercise-tracker).
+[femto-exercise-tracker](https://femto-exercise-tracker.glitch.me/) is a simple full stack app that keeps tracks of exercise logs of different users. This project idea was gotten from [freeCodeCamp](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/exercise-tracker).
 
 ---
 
 ### Resources
 
-- Create a user <#/api/users>
-- Get all users <#/api/users>
-- Create a new exercise log <#/api/users/:\_id/exercises>
-- Get a user's exercise logs <#/api/users/:\_id/log>
+- Create a user <https://femto-exercise-tracker.glitch.me/api/users>
+- Get all users <https://femto-exercise-tracker.glitch.me/api/users>
+- Create a new exercise log <https://femto-exercise-tracker.glitch.me/api/users/:_id/exercises>
+- Get a user's exercise logs <https://femto-exercise-tracker.glitch.me/api/users/:_id/log>
 
 #### Create a user
 
-A post request to <#/api/users> is made with the request body containing the user name of the user to be created. If the request is successful, a new user is created on the database and a 201 status code is returned with a json object containing the user name and id of the created user. If the user already exists in the database, a 200 status code is returned with a json object containing the user name and id of the user. If the username is absent from the request body, a 400 error is returned.
+A post request to <https://femto-exercise-tracker.glitch.me/api/users> is made with the request body containing the user name of the user to be created. If the request is successful, a new user is created on the database and a 201 status code is returned with a json object containing the user name and id of the created user. If the user already exists in the database, a 200 status code is returned with a json object containing the user name and id of the user. If the username is absent from the request body, a 400 error is returned.
 
 ##### Sample return
 
@@ -36,7 +36,7 @@ A post request to <#/api/users> is made with the request body containing the use
 
 #### Get all users
 
-A get request to <#/api/users> is made. If the request is successful, a 200 status code is returned with a json object containing all the users on the database. Else, a 400 error is returned.
+A get request to <https://femto-exercise-tracker.glitch.me/api/users> is made. If the request is successful, a 200 status code is returned with a json object containing all the users on the database. Else, a 400 error is returned.
 
 ##### Sample return
 
@@ -63,7 +63,7 @@ A get request to <#/api/users> is made. If the request is successful, a 200 stat
 
 #### Create a new exercise
 
-A post request to <#/api/users/:\_id/exercises> is made where :\_id is the id of the user creating the exercise. The request body contains the id of the user, the description of the exercise, the exercise duration and date. if no date is supplied, the current data is used. The id, description and duration must be present else a 400 error is returned.
+A post request to <https://femto-exercise-tracker.glitch.me/api/users/:_id/exercises> is made where :\_id is the id of the user creating the exercise. The request body contains the id of the user, the description of the exercise, the exercise duration and date. if no date is supplied, the current data is used. The id, description and duration must be present else a 400 error is returned.
 
 ##### Sample return
 
@@ -94,7 +94,7 @@ A post request to <#/api/users/:\_id/exercises> is made where :\_id is the id of
 
 #### Get a user's exercise logs
 
-A get request to <#/api/users/:\_id/log?from=YYYY-MM-DD&to=YYYY-MM-DD&limit=integer> is made. The form and to query fields are used to filter the exercise logs of user with id :\_id. If the from query field is absent, it is given a default value of 0. If the to query field is absent, it is given a default value of a day after the current date. The limit query field represents the number of logs that are returned. If it is absent all logs belonging to the user are returned.
+A get request to <https://femto-exercise-tracker.glitch.me/api/users/:_id/log?from=YYYY-MM-DD&to=YYYY-MM-DD&limit=integer> is made. The form and to query fields are used to filter the exercise logs of user with id :\_id. If the from query field is absent, it is given a default value of 0. If the to query field is absent, it is given a default value of a day after the current date. The limit query field represents the number of logs that are returned. If it is absent all logs belonging to the user are returned.
 
 ##### Sample return
 

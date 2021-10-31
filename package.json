@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/AgomohC/exercise-tracker/issues"
   },
-  "homepage": "https://github.com/AgomohC/exercise-tracker#readme",
+  "homepage": "https://femto-exercise-tracker.glitch.me/",
   "dependencies": {
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
