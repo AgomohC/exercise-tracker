@@ -112,7 +112,7 @@ const addExercise = async (req, res) => {
       finalUser.log = userLog1;
 
       // json return
-      return res.status(200).json({ userLogs: finalUser });
+      return res.status(201).json({ userLogs: finalUser });
     }
   } catch (error) {
     console.log(error);
@@ -126,14 +126,14 @@ const addExercise = async (req, res) => {
 const getExerciseLogs = async (req, res) => {
   let { _id } = req.params;
   let { from, to, limit } = req.query;
-
+  limit = Number(limit);
   // formats the date passed into the from query with moment
   from = moment(from, "YYYY-MM-DD").isValid() ? moment(from, "YYYY-MM-DD") : 0;
 
   // formats the date passed into the to query with moment
   to = moment(to, "YYYY-MM-DD").isValid()
     ? moment(to, "YYYY-MM-DD")
-    : moment().add(1000000000000);
+    : moment().add(86400000);
   try {
     // find user
     const user = await NewUser.findOne({ _id });
@@ -148,7 +148,7 @@ const getExerciseLogs = async (req, res) => {
       .where("date")
       .gte(from)
       .lte(to)
-      .limit(-limit);
+      .limit(limit);
 
     const result = {
       _id,
